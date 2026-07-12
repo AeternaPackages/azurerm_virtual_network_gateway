@@ -1,4 +1,9 @@
 # --- azurerm_virtual_network_gateway ---
+output "virtual_network_gateways_id" {
+  description = "Map of id values across all virtual_network_gateways, keyed the same as var.virtual_network_gateways"
+  value       = module.virtual_network_gateways.virtual_network_gateways_id
+}
+
 output "virtual_network_gateways_active_active" {
   description = "Map of active_active values across all virtual_network_gateways, keyed the same as var.virtual_network_gateways"
   value       = module.virtual_network_gateways.virtual_network_gateways_active_active
@@ -131,6 +136,11 @@ output "virtual_network_gateways_vpn_type" {
 }
 
 # --- azurerm_virtual_network_gateway_connection ---
+output "virtual_network_gateway_connections_id" {
+  description = "Map of id values across all virtual_network_gateway_connections, keyed the same as var.virtual_network_gateway_connections"
+  value       = module.virtual_network_gateway_connections.virtual_network_gateway_connections_id
+}
+
 output "virtual_network_gateway_connections_authorization_key" {
   description = "Map of authorization_key values across all virtual_network_gateway_connections, keyed the same as var.virtual_network_gateway_connections"
   value       = module.virtual_network_gateway_connections.virtual_network_gateway_connections_authorization_key
@@ -264,6 +274,11 @@ output "virtual_network_gateway_connections_virtual_network_gateway_id" {
 }
 
 # --- azurerm_virtual_network_gateway_nat_rule ---
+output "virtual_network_gateway_nat_rules_id" {
+  description = "Map of id values across all virtual_network_gateway_nat_rules, keyed the same as var.virtual_network_gateway_nat_rules"
+  value       = module.virtual_network_gateway_nat_rules.virtual_network_gateway_nat_rules_id
+}
+
 output "virtual_network_gateway_nat_rules_external_mapping" {
   description = "Map of external_mapping values across all virtual_network_gateway_nat_rules, keyed the same as var.virtual_network_gateway_nat_rules"
   value       = module.virtual_network_gateway_nat_rules.virtual_network_gateway_nat_rules_external_mapping
