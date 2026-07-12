@@ -5,7 +5,7 @@ locals {
     for k1, v1 in var.virtual_network_gateways : {
       for k2, v2 in coalesce(v1.virtual_network_gateway_connections, {}) :
       "${k1}/${k2}" => merge(v2, {
-        virtual_network_gateway_id = module.virtual_network_gateways.virtual_network_gateways["${k1}"].id
+        virtual_network_gateway_id = module.virtual_network_gateways.virtual_network_gateways_id["${k1}"]
       })
     }
   ]...)
@@ -14,7 +14,7 @@ locals {
     for k1, v1 in var.virtual_network_gateways : {
       for k2, v2 in coalesce(v1.virtual_network_gateway_nat_rules, {}) :
       "${k1}/${k2}" => merge(v2, {
-        virtual_network_gateway_id = module.virtual_network_gateways.virtual_network_gateways["${k1}"].id
+        virtual_network_gateway_id = module.virtual_network_gateways.virtual_network_gateways_id["${k1}"]
       })
     }
   ]...)
