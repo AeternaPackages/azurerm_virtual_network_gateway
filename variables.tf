@@ -108,16 +108,16 @@ EOT
     custom_route = optional(object({
       address_prefixes = optional(set(string))
     }))
-    policy_group = optional(object({
+    policy_group = optional(list(object({
       is_default = optional(bool) # Default: false
       name       = string
-      policy_member = object({
+      policy_member = list(object({
         name  = string
         type  = string
         value = string
-      })
+      }))
       priority = optional(number) # Default: 0
-    }))
+    })))
     vpn_client_configuration = optional(object({
       aad_audience  = optional(string)
       aad_issuer    = optional(string)
@@ -133,26 +133,26 @@ EOT
         sa_data_size_in_kilobytes = number
         sa_lifetime_in_seconds    = number
       }))
-      radius_server = optional(object({
+      radius_server = optional(list(object({
         address = string
         score   = number
         secret  = string
-      }))
+      })))
       radius_server_address = optional(string)
       radius_server_secret  = optional(string)
-      revoked_certificate = optional(object({
+      revoked_certificate = optional(list(object({
         name       = string
         thumbprint = string
-      }))
-      root_certificate = optional(object({
+      })))
+      root_certificate = optional(list(object({
         name             = string
         public_cert_data = string
-      }))
-      virtual_network_gateway_client_connection = optional(object({
+      })))
+      virtual_network_gateway_client_connection = optional(list(object({
         address_prefixes   = list(string)
         name               = string
         policy_group_names = list(string)
-      }))
+      })))
       vpn_auth_types       = optional(set(string))
       vpn_client_protocols = optional(set(string))
     }))
@@ -193,10 +193,10 @@ EOT
         sa_datasize      = optional(number)
         sa_lifetime      = optional(number)
       }))
-      traffic_selector_policy = optional(object({
+      traffic_selector_policy = optional(list(object({
         local_address_cidrs  = list(string)
         remote_address_cidrs = list(string)
-      }))
+      })))
     })))
     virtual_network_gateway_nat_rules = optional(map(object({
       name                = string
@@ -204,14 +204,14 @@ EOT
       ip_configuration_id = optional(string)
       mode                = optional(string) # Default: "EgressSnat"
       type                = optional(string) # Default: "Static"
-      external_mapping = object({
+      external_mapping = list(object({
         address_space = string
         port_range    = optional(string)
-      })
-      internal_mapping = object({
+      }))
+      internal_mapping = list(object({
         address_space = string
         port_range    = optional(string)
-      })
+      }))
     })))
   }))
 
