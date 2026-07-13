@@ -80,24 +80,24 @@ EOT
     sku                                   = string
     type                                  = string
     tags                                  = optional(map(string))
-    remote_vnet_traffic_enabled           = optional(bool) # Default: false
+    remote_vnet_traffic_enabled           = optional(bool)
     private_ip_address_enabled            = optional(bool)
     minimum_scale_unit                    = optional(number)
     maximum_scale_unit                    = optional(number)
-    ip_sec_replay_protection_enabled      = optional(bool) # Default: true
+    ip_sec_replay_protection_enabled      = optional(bool)
     generation                            = optional(string)
     edge_zone                             = optional(string)
-    virtual_wan_traffic_enabled           = optional(bool) # Default: false
+    virtual_wan_traffic_enabled           = optional(bool)
     dns_forwarding_enabled                = optional(bool)
     default_local_network_gateway_id      = optional(string)
-    bgp_route_translation_for_nat_enabled = optional(bool) # Default: false
+    bgp_route_translation_for_nat_enabled = optional(bool)
     bgp_enabled                           = optional(bool)
     active_active                         = optional(bool)
     enable_bgp                            = optional(bool)
-    vpn_type                              = optional(string) # Default: "RouteBased"
+    vpn_type                              = optional(string)
     ip_configuration = list(object({
-      name                          = optional(string) # Default: "vnetGatewayConfig"
-      private_ip_address_allocation = optional(string) # Default: "Dynamic"
+      name                          = optional(string)
+      private_ip_address_allocation = optional(string)
       public_ip_address_id          = optional(string)
       subnet_id                     = string
     }))
@@ -113,14 +113,14 @@ EOT
       address_prefixes = optional(set(string))
     }))
     policy_group = optional(list(object({
-      is_default = optional(bool) # Default: false
+      is_default = optional(bool)
       name       = string
       policy_member = list(object({
         name  = string
         type  = string
         value = string
       }))
-      priority = optional(number) # Default: 0
+      priority = optional(number)
     })))
     vpn_client_configuration = optional(object({
       aad_audience  = optional(string)
@@ -169,7 +169,7 @@ EOT
       shared_key_key_vault_id                 = optional(string)
       shared_key_key_vault_secret_name        = optional(string)
       routing_weight                          = optional(number)
-      private_link_fast_path_enabled          = optional(bool) # Default: false
+      private_link_fast_path_enabled          = optional(bool)
       peer_virtual_network_gateway_id         = optional(string)
       local_network_gateway_id                = optional(string)
       local_azure_ip_address_enabled          = optional(bool)
@@ -180,7 +180,7 @@ EOT
       egress_nat_rule_ids                     = optional(set(string))
       dpd_timeout_seconds                     = optional(number)
       connection_protocol                     = optional(string)
-      connection_mode                         = optional(string) # Default: "Default"
+      connection_mode                         = optional(string)
       bgp_enabled                             = optional(bool)
       authorization_key                       = optional(string)
       authorization_key_key_vault_id          = optional(string)
@@ -210,8 +210,8 @@ EOT
       name                = string
       resource_group_name = string
       ip_configuration_id = optional(string)
-      mode                = optional(string) # Default: "EgressSnat"
-      type                = optional(string) # Default: "Static"
+      mode                = optional(string)
+      type                = optional(string)
       external_mapping = list(object({
         address_space = string
         port_range    = optional(string)
