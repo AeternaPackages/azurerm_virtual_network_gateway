@@ -21,18 +21,18 @@ locals {
 }
 
 module "virtual_network_gateways" {
-  source                   = "git::https://github.com/AeternaModules/azurerm_virtual_network_gateway.git?ref=v4.80.0"
+  source                   = "git::https://github.com/AeternaModules/azurerm_virtual_network_gateway.git?ref=v4.81.0"
   virtual_network_gateways = local.virtual_network_gateways
 }
 
 module "virtual_network_gateway_connections" {
-  source                              = "git::https://github.com/AeternaModules/azurerm_virtual_network_gateway_connection.git?ref=v4.80.0"
+  source                              = "git::https://github.com/AeternaModules/azurerm_virtual_network_gateway_connection.git?ref=v4.81.0"
   virtual_network_gateway_connections = local.virtual_network_gateway_connections
   depends_on                          = [module.virtual_network_gateways]
 }
 
 module "virtual_network_gateway_nat_rules" {
-  source                            = "git::https://github.com/AeternaModules/azurerm_virtual_network_gateway_nat_rule.git?ref=v4.80.0"
+  source                            = "git::https://github.com/AeternaModules/azurerm_virtual_network_gateway_nat_rule.git?ref=v4.81.0"
   virtual_network_gateway_nat_rules = local.virtual_network_gateway_nat_rules
   depends_on                        = [module.virtual_network_gateways]
 }
