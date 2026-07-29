@@ -15,7 +15,6 @@ Optional:
     - default_local_network_gateway_id
     - dns_forwarding_enabled
     - edge_zone
-    - enable_bgp
     - generation
     - ip_sec_replay_protection_enabled
     - maximum_scale_unit
@@ -44,7 +43,6 @@ Nested virtual_network_gateway_connections (azurerm_virtual_network_gateway_conn
         - connection_protocol
         - dpd_timeout_seconds
         - egress_nat_rule_ids
-        - enable_bgp
         - express_route_circuit_id
         - express_route_gateway_bypass
         - ingress_nat_rule_ids
@@ -85,15 +83,14 @@ EOT
     minimum_scale_unit                    = optional(number)
     maximum_scale_unit                    = optional(number)
     ip_sec_replay_protection_enabled      = optional(bool)
-    generation                            = optional(string)
+    dns_forwarding_enabled                = optional(bool)
     edge_zone                             = optional(string)
     virtual_wan_traffic_enabled           = optional(bool)
-    dns_forwarding_enabled                = optional(bool)
     default_local_network_gateway_id      = optional(string)
     bgp_route_translation_for_nat_enabled = optional(bool)
     bgp_enabled                           = optional(bool)
     active_active                         = optional(bool)
-    enable_bgp                            = optional(bool)
+    generation                            = optional(string)
     vpn_type                              = optional(string)
     ip_configuration = list(object({
       name                          = optional(string)
@@ -174,8 +171,7 @@ EOT
       local_network_gateway_id                = optional(string)
       local_azure_ip_address_enabled          = optional(bool)
       ingress_nat_rule_ids                    = optional(set(string))
-      express_route_gateway_bypass            = optional(bool)
-      enable_bgp                              = optional(bool)
+      express_route_circuit_id                = optional(string)
       tags                                    = optional(map(string))
       egress_nat_rule_ids                     = optional(set(string))
       dpd_timeout_seconds                     = optional(number)
@@ -185,7 +181,7 @@ EOT
       authorization_key                       = optional(string)
       authorization_key_key_vault_id          = optional(string)
       authorization_key_key_vault_secret_name = optional(string)
-      express_route_circuit_id                = optional(string)
+      express_route_gateway_bypass            = optional(bool)
       use_policy_based_traffic_selectors      = optional(bool)
       custom_bgp_addresses = optional(object({
         primary   = string

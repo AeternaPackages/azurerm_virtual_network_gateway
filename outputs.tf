@@ -44,11 +44,6 @@ output "virtual_network_gateways_edge_zone" {
   value       = module.virtual_network_gateways.virtual_network_gateways_edge_zone
 }
 
-output "virtual_network_gateways_enable_bgp" {
-  description = "Map of enable_bgp values across all virtual_network_gateways, keyed the same as var.virtual_network_gateways"
-  value       = module.virtual_network_gateways.virtual_network_gateways_enable_bgp
-}
-
 output "virtual_network_gateways_generation" {
   description = "Map of generation values across all virtual_network_gateways, keyed the same as var.virtual_network_gateways"
   value       = module.virtual_network_gateways.virtual_network_gateways_generation
@@ -175,11 +170,6 @@ output "virtual_network_gateway_connections_dpd_timeout_seconds" {
 output "virtual_network_gateway_connections_egress_nat_rule_ids" {
   description = "Map of egress_nat_rule_ids values across all virtual_network_gateway_connections, keyed the same as var.virtual_network_gateway_connections"
   value       = module.virtual_network_gateway_connections.virtual_network_gateway_connections_egress_nat_rule_ids
-}
-
-output "virtual_network_gateway_connections_enable_bgp" {
-  description = "Map of enable_bgp values across all virtual_network_gateway_connections, keyed the same as var.virtual_network_gateway_connections"
-  value       = module.virtual_network_gateway_connections.virtual_network_gateway_connections_enable_bgp
 }
 
 output "virtual_network_gateway_connections_express_route_circuit_id" {
